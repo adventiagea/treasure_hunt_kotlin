@@ -112,6 +112,7 @@ dan langsung mulai bermain!"
         app:layout_constraintTop_toBottomOf="@+id/main_desc">
 
         <EditText
+            android:id="@+id/input_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -122,6 +123,7 @@ dan langsung mulai bermain!"
             android:padding="10dp" />
 
         <Button
+            android:id="@+id/play_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"

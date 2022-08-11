@@ -20,6 +20,7 @@ class ForgotPasswordFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.actionBar?.hide()
         val view = inflater.inflate(R.layout.fragment_forgot_password, container, false)
         val back = view.findViewById<ImageButton>(R.id.back_forgot)
         val emailInput = view.findViewById<EditText>(R.id.email_input_forgot)

@@ -16,6 +16,8 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         handler.postDelayed({
             val intentSplash = Intent(this, OnBoardActivity::class.java)
             startActivity(intentSplash)

@@ -23,6 +23,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.actionBar?.hide()
 
         val view = inflater.inflate(R.layout.fragment_login, container, false)
         val emailInput = view.findViewById<EditText>(R.id.email_input_login)

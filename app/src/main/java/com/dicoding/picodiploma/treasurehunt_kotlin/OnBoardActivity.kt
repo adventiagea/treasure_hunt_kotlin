@@ -23,6 +23,8 @@ class OnBoardActivity : AppCompatActivity() {
         binding = ActivityOnBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         list.add(
             OnBoardData(
                 R.drawable.illust1,

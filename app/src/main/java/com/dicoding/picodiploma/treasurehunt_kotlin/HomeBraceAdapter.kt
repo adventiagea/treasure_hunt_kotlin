@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,8 +15,6 @@ class HomeBraceAdapter(private val item : List<BraceData>) : RecyclerView.Adapte
                 Glide.with(itemView)
                     .load(data.imageBrace)
                     .into(braceImage)
-
-
             }
         }
     }
@@ -26,6 +25,12 @@ class HomeBraceAdapter(private val item : List<BraceData>) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: BraceViewHolder, position: Int) {
         holder.bind(item[position])
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailBraceActivity::class.java)
+
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = item.size

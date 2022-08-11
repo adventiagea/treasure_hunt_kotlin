@@ -1,10 +1,14 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.text.Html
+import android.text.TextWatcher
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.ActivityMainBinding
@@ -20,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.hide()
 
         list.add(
             BraceData(
@@ -51,6 +57,46 @@ class MainActivity : AppCompatActivity() {
                 super.onPageSelected(position)
             }
         })
+
+        val inputCode = binding.inputCode
+        val playButton = binding.playButton
+
+        inputCode.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                playButton.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.login_gray))
+                playButton.isClickable = false
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                playButton.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.green))
+
+                play()
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                playButton.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.green))
+
+                play()
+            }
+
+        })
+    }
+
+    private fun play() {
+        val inputCode = binding.inputCode
+        val playButton = binding.playButton
+
+        playButton.setOnClickListener{
+            if (inputCode.text.toString().isNotEmpty()){
+                val intent = Intent(this, LobbyActivity::class.java)
+
+                startActivity(intent)
+            }
+            else{
+                Toast.makeText(this, "Masukkan Kode Permainan!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
 
     private fun selectedImage(position: Int) {
