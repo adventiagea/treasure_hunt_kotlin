@@ -15,9 +15,7 @@ class HomeBraceAdapter(private val item : List<BraceData>) : RecyclerView.Adapte
                     .load(data.imageBrace)
                     .into(braceImage)
 
-                itemView.setOnClickListener {
 
-                }
             }
         }
     }

@@ -16,8 +16,8 @@ import androidx.navigation.Navigation
 
 class LoginFragment : Fragment() {
 
-    private val emailDefault : String = "Admin123"
-    private val passDefault : String = "123Admin"
+    private val emailDefault : String = "123"
+    private val passDefault : String = "123"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
