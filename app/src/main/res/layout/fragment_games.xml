@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/berita_terkini" />
 
     <LinearLayout
-        android:id="@+id/indikator_home"
+        android:id="@+id/indikator_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -79,14 +79,14 @@
         android:id="@+id/berita_terbaru"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/plus_jakarta_sans_regular"
         android:text="List of Games"
         android:textColor="@color/green"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/indikator_home"
-        app:layout_constraintTop_toBottomOf="@+id/indikator_home" />
+        app:layout_constraintStart_toStartOf="@+id/indikator_game"
+        app:layout_constraintTop_toBottomOf="@+id/indikator_game" />
 
     <TextView
         android:id="@+id/welcome_list1"
@@ -103,6 +103,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        tools:listitem="@layout/item_listgame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_list1"
         tools:layout_editor_absoluteX="16dp"/>
 
