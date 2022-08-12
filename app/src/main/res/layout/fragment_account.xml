@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingStart="40dp"
+    android:paddingEnd="40dp"
+    android:paddingTop="54dp"
     tools:context=".AccountFragment">
 
     <TextView
@@ -37,7 +40,7 @@
         android:layout_marginTop="28dp"
         android:fontFamily="@font/plus_jakarta_sans_regular"
         android:text="Name"
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +54,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/plus_jakarta_sans_regular"
         android:text="Email"
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -62,7 +65,8 @@
         android:layout_marginTop="5dp"
         android:fontFamily="@font/plus_jakarta_sans_regular"
         android:text="Pandu Hutagalung"
-        android:textSize="14dp"
+        android:textSize="14sp"
+        android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -74,6 +78,7 @@
         android:fontFamily="@font/plus_jakarta_sans_regular"
         android:text="pandu22hutagalung@gmail.com"
         android:textSize="14dp"
+        android:textColor="@color/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -130,17 +135,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="137dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:src="@tools:sample/avatars"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11"/>
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
