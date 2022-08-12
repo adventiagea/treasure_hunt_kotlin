@@ -30,20 +30,24 @@ class MainActivity : AppCompatActivity() {
         bottomNav = binding.bottomNav
         loadFragment(HomeFragment())
 
-        bottomNav.setOnNavigationItemReselectedListener {
-            when (it.itemId){
+        bottomNav.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId){
                 R.id.home -> {
                     loadFragment(HomeFragment())
-                    return@setOnNavigationItemReselectedListener
+
+                    true
                 }
                 R.id.games -> {
                     loadFragment(GamesFragment())
-                    return@setOnNavigationItemReselectedListener
+
+                    true
                 }
                 R.id.account -> {
                     loadFragment(AccountFragment())
-                    return@setOnNavigationItemReselectedListener
+
+                    true
                 }
+                else -> false
             }
         }
 
