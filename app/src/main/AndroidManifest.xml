@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dicoding.picodiploma.treasurehunt_kotlin">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -13,6 +15,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TreasureHuntKotlin">
+        <activity
+            android:name=".brace.BraceCheckOutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".brace.BraceShareActivity"
+            android:exported="false" />
+        <activity
+            android:name=".brace.BracePlayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".brace.BraceNarasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".brace.BraceCheckInActivity"
+            android:exported="false" />
         <activity
             android:name=".TermsAndConditionsActivity"
             android:exported="false" />
