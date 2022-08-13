@@ -15,9 +15,8 @@ interface AuthInterface {
     suspend fun registUser(@Body user : RegisterBody) : Response<RegisterResponse>
 
     @Headers("Content-Type: application/json")
-    @HTTP(method = "POST", path = "/mobile/v1/auth", hasBody = true)
-//    @POST("mobile/v1/auth")
-    fun login(@Body user : LoginBody) : Call<LoginResponse>
+    @POST("/mobile/v1/auth")
+    suspend fun login(@Body user : LoginBody) : Response<LoginResponse>
 
 
     @GET("/mobile/v1/me")
