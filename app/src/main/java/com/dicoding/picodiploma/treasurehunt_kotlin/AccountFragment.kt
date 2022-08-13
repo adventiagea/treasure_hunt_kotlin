@@ -35,11 +35,13 @@ class AccountFragment : Fragment() {
         }
 
         view.findViewById<TextView>(R.id.about).setOnClickListener {
-
+            val intent = Intent(requireContext(), AboutActivity::class.java)
+            startActivity(intent)
         }
 
         view.findViewById<TextView>(R.id.terms_and_conditions).setOnClickListener {
-
+            val intent = Intent(requireContext(), TermsAndConditionsActivity::class.java)
+            startActivity(intent)
         }
 
         // Inflate the layout for this fragment
