@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dicoding.picodiploma.treasurehunt_kotlin">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -32,9 +36,6 @@
             android:exported="false" />
         <activity
             android:name=".DetailBraceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ListGameActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
