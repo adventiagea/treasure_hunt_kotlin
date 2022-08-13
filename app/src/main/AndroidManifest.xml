@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TreasureHuntKotlin">
         <activity
+            android:name=".brace.ScanQRActivity"
+            android:exported="false" />
+        <activity
             android:name=".brace.BraceCheckOutActivity"
             android:exported="false" />
         <activity

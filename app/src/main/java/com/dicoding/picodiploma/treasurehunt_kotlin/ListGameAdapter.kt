@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.dicoding.picodiploma.treasurehunt_kotlin.brace.BraceCheckInActivity
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.ItemListgameBinding
 
 class ListGameAdapter(private val item : List<ListGameData>) : RecyclerView.Adapter<ListGameAdapter.ListGameViewHolder>() {
@@ -41,7 +42,7 @@ class ListGameAdapter(private val item : List<ListGameData>) : RecyclerView.Adap
         }
 
         holder.itemView.findViewById<Button>(R.id.button_play_game_adapter).setOnClickListener {
-            val intent = Intent(holder.itemView.context, WelcomeGameActivity::class.java)
+            val intent = Intent(holder.itemView.context, BraceCheckInActivity::class.java)
 
             holder.itemView.context.startActivity(intent)
         }
