@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/name_input_login"
+        android:id="@+id/name_input_regis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
@@ -93,7 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/email_input_login"
+        android:id="@+id/email_input_regis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
@@ -117,10 +117,10 @@
         android:textColor="@color/text"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_input_login" />
+        app:layout_constraintTop_toBottomOf="@+id/email_input_regis" />
 
     <EditText
-        android:id="@+id/pass_input_login"
+        android:id="@+id/pass_input_regis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
@@ -145,10 +145,10 @@
         android:textColor="@color/text"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_input_login" />
+        app:layout_constraintTop_toBottomOf="@+id/email_input_regis" />
 
     <EditText
-        android:id="@+id/confirm_pass_input_login"
+        android:id="@+id/confirm_pass_input_regis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
@@ -174,11 +174,11 @@
         android:focusable="true"
         android:text="Forgot Password?"
         android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/confirm_pass_input_login"
-        app:layout_constraintTop_toBottomOf="@+id/confirm_pass_input_login" />
+        app:layout_constraintEnd_toEndOf="@+id/confirm_pass_input_regis"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_pass_input_regis" />
 
     <Button
-        android:id="@+id/logins_button"
+        android:id="@+id/regis_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
