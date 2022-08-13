@@ -1,6 +1,7 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import de.hdodenhof.circleimageview.CircleImageView
 
 class AccountFragment : Fragment() {
 
@@ -44,7 +47,10 @@ class AccountFragment : Fragment() {
             startActivity(intent)
         }
 
-        // Inflate the layout for this fragment
+        val uri = "https://images.unsplash.com/photo-1655874184076-c75fce971b46?ixlib=rb-1.2.1&dl=lance-reis-CsO0RhSdc-I-unsplash.jpg&w=640&q=80&fm=jpg&crop=entropy&cs=tinysrgb"
+        view.findViewById<CircleImageView>(R.id.profil_image).setImageURI(Uri.parse(uri))
+
+        // https://images.unsplash.com/photo-1655874184076-c75fce971b46?ixlib=rb-1.2.1&dl=lance-reis-CsO0RhSdc-I-unsplash.jpg&w=640&q=80&fm=jpg&crop=entropy&cs=tinysrgb
         return view
     }
 }
