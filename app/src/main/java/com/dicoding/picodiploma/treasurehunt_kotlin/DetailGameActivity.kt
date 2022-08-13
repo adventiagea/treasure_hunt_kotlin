@@ -7,6 +7,8 @@ import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.ActivityDetailGa
 
 class DetailGameActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDetailGameBinding
+    private lateinit var adapter: HomeBraceAdapter
+    private val list = ArrayList<BraceData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,6 +16,27 @@ class DetailGameActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.hide()
+
+        list.add(
+            BraceData(
+                R.drawable.brace1
+            )
+        )
+
+        list.add(
+            BraceData(
+                R.drawable.brace2
+            )
+        )
+
+        list.add(
+            BraceData(
+                R.drawable.brace3
+            )
+        )
+
+        adapter = HomeBraceAdapter(list)
+        binding.viewPagerDetailGame.adapter = adapter
 
         binding.playGameDetailButton.setOnClickListener {
             val intent = Intent(this, WelcomeGameActivity::class.java)
