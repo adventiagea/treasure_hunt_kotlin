@@ -73,7 +73,7 @@ class LoginFragment : Fragment() {
         val register = view.findViewById<TextView>(R.id.register_login)
 
         register?.setOnClickListener {
-            Navigation.findNavController(requireView()).navigate(R.id.register_login)
+            Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_registrationFragment)
         }
 
         val forgot = view.findViewById<TextView>(R.id.forgot_login)

@@ -92,7 +92,7 @@ class HomeFragment : Fragment() {
 
         playButton?.setOnClickListener{
             if (inputCode?.text.toString().isNotEmpty()){
-                val intent = Intent(requireContext(), LobbyActivity::class.java)
+                val intent = Intent(activity, LobbyActivity::class.java)
 
                 startActivity(intent)
             }

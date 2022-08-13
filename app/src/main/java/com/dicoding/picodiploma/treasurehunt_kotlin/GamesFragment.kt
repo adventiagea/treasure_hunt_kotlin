@@ -10,15 +10,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentGamesBinding
 import java.lang.StringBuilder
 
 class GamesFragment : Fragment() {
 
-    private lateinit var adapter: HomeBraceAdapter
+    private lateinit var adapter: GameBraceAdapter
     private lateinit var listAdapter: ListGameAdapter
-    private val list = ArrayList<BraceData>()
+    private val list = ArrayList<BraceGameData>()
     private val listGame = ArrayList<ListGameData>()
     private lateinit var dot : ArrayList<TextView>
 
@@ -31,40 +32,29 @@ class GamesFragment : Fragment() {
         activity?.actionBar?.hide()
 
         list.add(
-            BraceData(
-                R.drawable.brace1
+            BraceGameData(
+                R.drawable.banner_brace,
+                "BRACE",
+                "2022"
             )
         )
 
         list.add(
-            BraceData(
-                R.drawable.brace2
+            BraceGameData(
+                R.drawable.banner_manohara,
+                "MANOHARA",
+                ""
             )
         )
 
-        list.add(
-            BraceData(
-                R.drawable.brace3
-            )
-        )
-
-        adapter = HomeBraceAdapter(list)
+        adapter = GameBraceAdapter(list)
         binding.viewPagerList.adapter = adapter
         dot = ArrayList()
 
         listGame.add(
             ListGameData(
-                R.drawable.brace1,
-                "Manohara",
-                "Manohara",
-                "Lorem ipsum dolor sit amet"
-            )
-        )
-
-        listGame.add(
-            ListGameData(
-                R.drawable.brace1,
-                "Manohara",
+                R.drawable.banner_manohara,
+                "MANOHARA",
                 "Manohara",
                 "Lorem ipsum dolor sit amet"
             )
@@ -72,12 +62,25 @@ class GamesFragment : Fragment() {
 
         listGame.add(
             ListGameData(
-                R.drawable.brace1,
-                "Manohara",
-                "Manohara",
+                R.drawable.banner_brace,
+                "BRACE\n2022",
+                "BRACE 2022",
                 "Lorem ipsum dolor sit amet"
             )
         )
+
+        listGame.add(
+            ListGameData(
+                R.drawable.list_game_3,
+                "SHUDANNA",
+                "Shudanna",
+                "Lorem ipsum dolor sit amet"
+            )
+        )
+
+        listAdapter = ListGameAdapter(listGame)
+        binding.listGameRv.adapter = listAdapter
+        binding.listGameRv.layoutManager = LinearLayoutManager(context)
 
         setIndicator()
 

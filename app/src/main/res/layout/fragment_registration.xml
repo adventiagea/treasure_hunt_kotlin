@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light_yellow"
-    tools:context=".view.activity.LoginActivity">
+    android:background="@color/bg_light_yellow">
 
     <ImageView
         android:id="@+id/imageView"
@@ -21,15 +20,25 @@
         android:id="@+id/login_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/lora_regular"
         android:text="Registration"
         android:textColor="@color/text"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="35dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageButton
+        android:id="@+id/back_register"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/back_icon"
+        android:layout_marginStart="39dp"
+        app:layout_constraintBottom_toBottomOf="@+id/login_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/login_title" />
 
     <TextView
         android:id="@+id/textView"
@@ -60,14 +69,14 @@
         android:id="@+id/name_input_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/text_box"
         android:layout_marginStart="39dp"
-        android:layout_marginEnd="39dp"
-        android:textSize="12sp"
-        android:maxLines="1"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="39dp"
+        android:background="@drawable/text_box"
         android:hint="Name"
+        android:maxLines="1"
         android:padding="10dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -87,14 +96,14 @@
         android:id="@+id/email_input_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/text_box"
         android:layout_marginStart="39dp"
-        android:layout_marginEnd="39dp"
-        android:textSize="12sp"
-        android:maxLines="1"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="39dp"
+        android:background="@drawable/text_box"
         android:hint="Email"
+        android:maxLines="1"
         android:padding="10dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -114,15 +123,15 @@
         android:id="@+id/pass_input_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="39dp"
         android:background="@drawable/text_box"
         android:hint="Password"
-        android:padding="10dp"
-        android:maxLines="1"
-        android:textSize="12sp"
         android:inputType="textPassword"
-        android:layout_marginStart="39dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -142,15 +151,15 @@
         android:id="@+id/confirm_pass_input_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="39dp"
         android:background="@drawable/text_box"
         android:hint="Confirm Password"
-        android:padding="10dp"
-        android:maxLines="1"
-        android:textSize="12sp"
         android:inputType="textPassword"
-        android:layout_marginStart="39dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -160,25 +169,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="39dp"
-        android:text="Forgot Password?"
-        android:textSize="12dp"
         android:clickable="true"
         android:enabled="true"
+        android:focusable="true"
+        android:text="Forgot Password?"
+        android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="@+id/confirm_pass_input_login"
-        app:layout_constraintTop_toBottomOf="@+id/confirm_pass_input_login"
-        android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@+id/confirm_pass_input_login" />
 
     <Button
         android:id="@+id/logins_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="39dp"
+        android:backgroundTint="@color/login_gray"
         android:fontFamily="@font/plus_jakarta_sans_regular"
         android:text="Ok"
-        android:backgroundTint="@color/login_gray"
         android:textAllCaps="false"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginEnd="39dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgot_login" />
@@ -187,8 +196,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginBottom="62dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -204,13 +213,13 @@
             android:id="@+id/register_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="2dp"
-            android:text="Register here"
             android:clickable="true"
             android:enabled="true"
+            android:focusable="true"
+            android:paddingStart="2dp"
+            android:text="Register here"
             android:textColor="@color/green"
-            android:textSize="12sp"
-            android:focusable="true" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 

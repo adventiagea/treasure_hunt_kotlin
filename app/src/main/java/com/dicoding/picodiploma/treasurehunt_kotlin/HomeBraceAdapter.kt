@@ -1,8 +1,11 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.ItemBraceHomeBinding
@@ -26,7 +29,15 @@ class HomeBraceAdapter(private val item : List<BraceData>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: BraceViewHolder, position: Int) {
         holder.bind(item[position])
 
-        holder.itemView.setOnClickListener {
+        val context = holder.itemView.context.applicationContext
+
+        holder.itemView.setOnClickListener { view ->
+            //Navigation.findNavController().navigate(R.id.action_homeFragment_to_detailBraceFragment)
+
+            //Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_detailBraceFragment)
+
+            //view.findNavController().navigate(R.id.action_homeFragment_to_detailBraceFragment)
+
             val intent = Intent(holder.itemView.context, DetailBraceActivity::class.java)
 
             holder.itemView.context.startActivity(intent)

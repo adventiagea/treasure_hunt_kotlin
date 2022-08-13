@@ -7,23 +7,33 @@
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/drawable/bottom_nav.xml" value="0.186" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/drawable/color_button_login.xml" value="0.1" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/drawable/info.xml" value="0.1475" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/drawable/player.xml" value="0.1" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/drawable/text_box.xml" value="0.1475" />
-        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_detail_brace.xml" value="0.264" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_change_password.xml" value="0.15989583333333332" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_detail_brace.xml" value="0.12280701754385964" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_detail_game.xml" value="0.264" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_list_game.xml" value="0.264" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_lobby.xml" value="0.2" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_lobby_game.xml" value="0.2" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_login.xml" value="0.13323201621073963" />
-        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_main.xml" value="0.536" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_main.xml" value="0.2750865051903114" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_on_board.xml" value="0.10400000000000001" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_splash_screen.xml" value="0.13323201621073963" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_welcome_game.xml" value="0.1" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_forgot_send_yes.xml" value="0.1852355072463768" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_account.xml" value="0.264" />
-        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_account2.xml" value="0.18704710144927536" />
-        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_forgot_password.xml" value="0.13323201621073963" />
-        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_games.xml" value="0.1256544502617801" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_account2.xml" value="0.2" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_change_password.xml" value="0.176" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_detail_brace.xml" value="0.13451086956521738" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_detail_game.xml" value="0.264" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_forgot_password.xml" value="0.2" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_games.xml" value="0.264" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_home.xml" value="0.275" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_login.xml" value="0.264" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_new_password.xml" value="0.264" />
-        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_registration.xml" value="0.13323201621073963" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_registration.xml" value="0.264" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_welcome_game.xml" value="0.264" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/item_brace_game.xml" value="0.1431159420289855" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/item_brace_home.xml" value="0.264" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/item_listgame.xml" value="0.275" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/item_on_boad.xml" value="0.13323201621073963" />

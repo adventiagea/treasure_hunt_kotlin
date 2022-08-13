@@ -10,8 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TreasureHuntKotlin">
         <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LobbyGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WelcomeGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailGameActivity"
+            android:exported="false" />
+        <activity
             android:name=".LobbyActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".DetailBraceActivity"
             android:exported="false" />
@@ -35,8 +47,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

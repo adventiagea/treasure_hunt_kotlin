@@ -105,6 +105,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/back_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="37dp"

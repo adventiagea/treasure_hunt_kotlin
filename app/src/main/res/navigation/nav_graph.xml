@@ -57,4 +57,7 @@
         android:id="@+id/mainActivity"
         android:name="com.dicoding.picodiploma.treasurehunt_kotlin.MainActivity"
         android:label="MainActivity" />
+
+
+
 </navigation>
