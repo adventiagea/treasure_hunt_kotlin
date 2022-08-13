@@ -13,7 +13,7 @@ class DialogsFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var rootView : View = inflater.inflate(R.layout.dialog_forgot_send_yes, container, false)
+        var rootView : View = inflater.inflate(R.layout.dialog_send_email_yes, container, false)
 
         return rootView
     }
