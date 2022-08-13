@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/drawable/button.xml" value="0.167" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/drawable/pop_up_dialog.xml" value="0.167" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/create_new_pass_failed_dialog_layout.xml" value="0.1" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/create_new_pass_success_dialog_layout.xml" value="0.33" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/dialog_button.xml" value="0.1859375" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/dialog_forgot_send_yes.xml" value="0.22" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/forgot_pass_failed_dialog_layout.xml" value="0.33" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/forgot_pass_success_dialog_layout.xml" value="0.2" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/fragment_forgot_password.xml" value="0.2" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/fragment_registration.xml" value="0.2" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/registration_dialog_layout.xml" value="0.1" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/registration_failed_dialog_layout.xml" value="0.1" />
+        <entry key="..\:/Project/Treasure Hunt Indonesia/treasure_hunt_kotlin/app/src/main/res/layout/registration_success_dialog_layout.xml" value="0.2" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/drawable/back_icon.xml" value="0.1" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/drawable/bottom_nav.xml" value="0.186" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/drawable/color_button_login.xml" value="0.1" />
