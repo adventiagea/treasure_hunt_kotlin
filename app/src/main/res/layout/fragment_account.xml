@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/terms_and_conditions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
@@ -110,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/change_password" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
@@ -120,10 +120,10 @@
         android:textStyle="bold"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/terms_and_conditions" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/change_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -156,7 +156,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/change_photo" />
 
     <Button
         android:id="@+id/sign_out"

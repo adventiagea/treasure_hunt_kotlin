@@ -34,8 +34,13 @@ class AccountFragment : Fragment() {
             //Navigation.findNavController(view).navigate(R.id.action_accountFragment_to_changePasswordFragment)
         }
 
+        view.findViewById<TextView>(R.id.about).setOnClickListener {
 
+        }
 
+        view.findViewById<TextView>(R.id.terms_and_conditions).setOnClickListener {
+
+        }
 
         // Inflate the layout for this fragment
         return view
