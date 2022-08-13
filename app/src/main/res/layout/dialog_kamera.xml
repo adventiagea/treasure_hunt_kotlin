@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,13 +16,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             android:padding="20dp">
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/check_circle"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/lora_regular"
-                android:text="Email sent!"
+                android:text="Aktifkan Kameramu"
                 android:textColor="@color/text"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView3"
@@ -49,7 +49,7 @@
                 android:fontFamily="@font/lora_regular"
                 android:paddingStart="45dp"
                 android:paddingEnd="45dp"
-                android:text="We’ve send an email for you to change your password, please check your inbox"
+                android:text="Kami membutuhkan izin untuk membuka kameramu"
                 android:textAlignment="center"
                 android:textColor="@color/text2"
                 android:textSize="20sp"
@@ -67,10 +67,10 @@
                 android:paddingTop="10dp"
                 android:paddingEnd="25dp"
                 android:paddingBottom="10dp"
-                android:text="Ok"
+                android:text="Allow"
                 android:textSize="20sp"
                 android:textStyle="bold"
-
+                android:textAllCaps="false"
                 android:layout_marginTop="15dp"
                 app:layout_constraintEnd_toEndOf="@+id/textView6"
                 app:layout_constraintStart_toStartOf="@+id/textView6"

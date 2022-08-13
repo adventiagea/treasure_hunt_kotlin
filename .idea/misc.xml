@@ -22,11 +22,18 @@
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_splash_screen.xml" value="0.13323201621073963" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.2391304347826087" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_welcome_game.xml" value="0.1" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_berhasil.xml" value="0.24003623188405798" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_forgot_failed.xml" value="0.26856884057971014" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_forgot_send_yes.xml" value="0.1852355072463768" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_forgot_success.xml" value="0.26856884057971014" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_game_check_in.xml" value="0.264" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_instruksi_awal.xml" value="0.24003623188405798" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_kamera.xml" value="0.14628623188405798" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_next_pos.xml" value="0.24003623188405798" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_regis_failed.xml" value="0.26856884057971014" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_regis_success.xml" value="0.26856884057971014" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_send_email_yes.xml" value="0.24003623188405798" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_share.xml" value="0.24003623188405798" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_sign_out.xml" value="0.4" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_account.xml" value="0.264" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_account2.xml" value="0.2" />
