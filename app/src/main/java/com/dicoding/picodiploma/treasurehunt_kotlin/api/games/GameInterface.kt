@@ -11,5 +11,6 @@ interface GameInterface {
     suspend fun getGameLists(@Header("Authorization") token: String) : Response<Games>
 
     @GET("/mobile/v1/games/{gameID}")
-    suspend fun getGameDetail(@Header("Authorization") token: String, @Path("gameID") gameID: String) : Response<Game>
+    suspend fun getGameDetail(@Header("Authorization") token: String,
+                              @Path("gameID") gameID: String) : Response<Game>
 }
