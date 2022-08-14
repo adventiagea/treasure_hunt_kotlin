@@ -1,6 +1,8 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,12 +17,17 @@ import androidx.navigation.ui.NavigationUI
 import de.hdodenhof.circleimageview.CircleImageView
 
 class AccountFragment : Fragment() {
+    private lateinit var sharedPreferences: SharedPreferences // deklarasi fitur shared preference
+    private val preferencesName = "treasureHunt" //key shared preference app
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_account, container, false)
+
+        sharedPreferences = requireActivity().getSharedPreferences(preferencesName, Context.MODE_PRIVATE) //inisialisasi fitur shared preference
+
 
         view.findViewById<Button>(R.id.sign_out).setOnClickListener{
             val intent = Intent(requireContext(), LoginActivity::class.java)
@@ -52,5 +59,15 @@ class AccountFragment : Fragment() {
 
         // https://images.unsplash.com/photo-1655874184076-c75fce971b46?ixlib=rb-1.2.1&dl=lance-reis-CsO0RhSdc-I-unsplash.jpg&w=640&q=80&fm=jpg&crop=entropy&cs=tinysrgb
         return view
+    }
+
+    private fun logOut(){
+        val user : SharedPreferences.Editor = sharedPreferences.edit()
+
+        user.clear() //menghapus semua value yang disimpan di shared preference
+        user.apply()
+
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -51,6 +51,7 @@ class GamesFragment : Fragment() {
         binding.viewPagerList.adapter = adapter
         dot = ArrayList()
 
+
         listGame.add(
             ListGameData(
                 R.drawable.banner_manohara,
@@ -77,6 +78,7 @@ class GamesFragment : Fragment() {
                 "Lorem ipsum dolor sit amet"
             )
         )
+
 
         listAdapter = ListGameAdapter(listGame)
         binding.listGameRv.adapter = listAdapter

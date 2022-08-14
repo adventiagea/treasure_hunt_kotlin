@@ -61,7 +61,6 @@
                 android:id="@+id/ok_forgot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/green"
                 android:fontFamily="@font/lora_regular"
                 android:paddingStart="25dp"
                 android:paddingTop="10dp"
