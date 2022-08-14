@@ -1,11 +1,11 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin.api
 
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.detail.Game
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.list.Games
 import com.dicoding.picodiploma.treasurehunt_kotlin.data.RegisterUserData
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.Response
+import retrofit2.http.*
 
 interface ApiClient {
     @POST("/mobile/v1/registration")
@@ -16,5 +16,12 @@ interface ApiClient {
         @Path("address") address : String,
         @Path("phone_number") phoneNumber : String
     ) : Call<RegisterUserData>
+
+    @GET("/mobile/v1/games")
+    fun getGameLists(@Header("Authorization") token: String) : Call<Games>
+
+    @GET("/mobile/v1/games/{gameID}")
+    suspend fun getGameDetail(@Header("Authorization") token: String,
+                              @Path("gameID") gameID: String) : Response<Game>
 
 }
