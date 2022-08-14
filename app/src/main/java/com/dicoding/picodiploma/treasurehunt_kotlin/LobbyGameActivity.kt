@@ -19,7 +19,7 @@ class LobbyGameActivity : AppCompatActivity() {
 
         binding.playGameButton.setBackgroundColor(ContextCompat.getColor(this, R.color.green))
         binding.playGameButton.setOnClickListener {
-            val intent = Intent(this, ManoharaMainActivity::class.java)
+            val intent = Intent(this, PlayGameActivity::class.java)
             startActivity(intent)
         }
     }

@@ -16,17 +16,24 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.RetrofitClient
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.GameControlInterface
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.join_game.JoinBody
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentHomeBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
     private lateinit var sharedPreferences: SharedPreferences // deklarasi fitur shared preference
     private val preferencesName = "treasureHunt" //key shared preference app
-    private val tokenKey = "key_token" //key shared preference token
+    private val tokenKey = "key_token"//key shared preference token
+    private val tokenGame = "key_token_game"
     private lateinit var adapter: HomeBraceAdapter
     private val list = ArrayList<BraceData>()
     private lateinit var dot : ArrayList<TextView>
+    private val gameControl = RetrofitClient.init().create(GameControlInterface::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -103,9 +110,22 @@ class HomeFragment : Fragment() {
 
         playButton?.setOnClickListener{
             if (inputCode?.text.toString().isNotEmpty()){
-                val intent = Intent(activity, LobbyActivity::class.java)
+                Log.d("API-login: ", getTokenUser().toString()+"%%%%%"+inputCode?.text.toString())
 
-                startActivity(intent)
+                //saveTokenGame(inputCode?.text.toString())
+                GlobalScope.launch {
+                    val joinRes = gameControl.join(getTokenUser().toString(), JoinBody(inputCode?.text.toString()))
+
+                    if (joinRes.isSuccessful){
+                        val intent = Intent(activity, LobbyActivity::class.java)
+
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(requireContext(), "Kode Permainan Salah!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+
             }
             else{
                 Toast.makeText(requireContext(), "Masukkan Kode Permainan!", Toast.LENGTH_SHORT).show()
@@ -142,5 +162,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun getTokenUser() : String? = sharedPreferences.getString(tokenKey, null)
+
+    private fun saveTokenGame(token : String) {
+        val user: SharedPreferences.Editor = sharedPreferences.edit()
+
+        user.putString(tokenGame, token)
+        user.apply()
+    }
 
 }
