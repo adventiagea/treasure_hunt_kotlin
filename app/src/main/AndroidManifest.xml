@@ -20,8 +20,7 @@
             android:exported="false" />
         <activity
             android:name=".ApiTestActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".brace.ScanQRActivity"
             android:exported="false" />
