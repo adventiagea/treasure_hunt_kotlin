@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/send_email_dialog_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -57,7 +58,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <Button
-                android:id="@+id/ok_forgot"
+                android:id="@+id/ok_send_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/green"
