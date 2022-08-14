@@ -139,6 +139,9 @@ class GamesFragment : Fragment() {
         }
 
 
+        }
+
+
         setIndicator()
 
         binding.viewPagerList.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){

@@ -1,14 +1,11 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.Html
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,24 +13,13 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
-import com.dicoding.picodiploma.treasurehunt_kotlin.api.RetrofitClient
-import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.GameControlInterface
-import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.join_game.JoinBody
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentHomeBinding
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
-
-    private lateinit var sharedPreferences: SharedPreferences // deklarasi fitur shared preference
-    private val preferencesName = "treasureHunt" //key shared preference app
-    private val tokenKey = "key_token"//key shared preference token
-    private val tokenGame = "key_token_game"
     private lateinit var adapter: HomeBraceAdapter
     private val list = ArrayList<BraceData>()
     private lateinit var dot : ArrayList<TextView>
-    private val gameControl = RetrofitClient.init().create(GameControlInterface::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,11 +27,7 @@ class HomeFragment : Fragment() {
     ) : View {
         val binding = FragmentHomeBinding.inflate(inflater, container, false) // Inflate the layout for this fragment
 
-        sharedPreferences = requireActivity().getSharedPreferences(preferencesName, Context.MODE_PRIVATE) //inisialisasi fitur shared preference
-
         activity?.actionBar?.hide()
-
-        Log.d("CHECKING: ", getTokenUser().toString())
 
         list.add(
             BraceData(
@@ -110,22 +92,9 @@ class HomeFragment : Fragment() {
 
         playButton?.setOnClickListener{
             if (inputCode?.text.toString().isNotEmpty()){
-                Log.d("API-login: ", getTokenUser().toString()+"%%%%%"+inputCode?.text.toString())
+                val intent = Intent(activity, LobbyActivity::class.java)
 
-                //saveTokenGame(inputCode?.text.toString())
-                GlobalScope.launch {
-                    val joinRes = gameControl.join(getTokenUser().toString(), JoinBody(inputCode?.text.toString()))
-
-                    if (joinRes.isSuccessful){
-                        val intent = Intent(activity, LobbyActivity::class.java)
-
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(requireContext(), "Kode Permainan Salah!", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-
+                startActivity(intent)
             }
             else{
                 Toast.makeText(requireContext(), "Masukkan Kode Permainan!", Toast.LENGTH_SHORT).show()
@@ -159,15 +128,6 @@ class HomeFragment : Fragment() {
             dot[i].textSize = 12f
             view?.findViewById<LinearLayout>(R.id.indikator_home)?.addView(dot[i])
         }
-    }
-
-    private fun getTokenUser() : String? = sharedPreferences.getString(tokenKey, null)
-
-    private fun saveTokenGame(token : String) {
-        val user: SharedPreferences.Editor = sharedPreferences.edit()
-
-        user.putString(tokenGame, token)
-        user.apply()
     }
 
 }
