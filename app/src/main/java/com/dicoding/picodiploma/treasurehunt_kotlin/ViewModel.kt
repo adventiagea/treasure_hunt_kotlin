@@ -15,7 +15,7 @@ class ViewModel : ViewModel() {
     private val listGame = MutableLiveData<ArrayList<GameDatas>>()
 
     fun listGameApi(token : String){
-        ApiBase.apiInterface.getGameLists("Bearer "+ token).enqueue(object : Callback<Games> {
+        ApiBase.apiInterface.getGameLists(token).enqueue(object : Callback<Games> {
             override fun onResponse(call: Call<Games>, response: Response<Games>) {
                 listGame.postValue(response.body()?.data!!)
             }

@@ -44,38 +44,6 @@ class GamesFragment : Fragment() {
 
         val viewModel = ViewModelProvider(requireActivity())[ViewModel::class.java]//inisialisasi fitur viewmodel
 
-        val games = RetrofitClient.init().create(GameInterface::class.java)
-
-        GlobalScope.launch {
-
-            val gameListRes = games.getGameLists("Bearer "+ getTokenUser().toString())
-/*
-            listGame.addAll(
-                listOf(ListGameData(
-                    R.drawable.banner_manohara,
-                    "MANOHARA",
-                    gameListRes.body()?.data!![0].title,
-                    gameListRes.body()?.data!![0].description
-                ))
-            )
-
-
-            listGame.add(
-                ListGameData(
-                    R.drawable.banner_manohara,
-                    "MANOHARA",
-                    gameListRes.body()?.data!![0].title,
-                    "Lorem ipsum dolor sit amet"
-                )
-            )
-
-             */
-
-        }
-
-
-
-
         list.add(
             BraceGameData(
                 R.drawable.banner_brace,
@@ -137,10 +105,6 @@ class GamesFragment : Fragment() {
             binding.listGameRv.layoutManager = LinearLayoutManager(context)
 
         }
-
-
-        }
-
 
         setIndicator()
 
