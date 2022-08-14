@@ -113,6 +113,8 @@ class RegistrationFragment : Fragment() {
 
         })
 
+
+        //fix
         regisButton.setOnClickListener {
 
             if (nameInput.text != null && emailInput.text != null && passInput.text != null && confirmInput.text != null){
