@@ -5,5 +5,5 @@ data class Games(
     val responseCode : Int,
     val responseMessage : String,
     val message : String,
-    val data : List<GameDatas>?
+    val data : ArrayList<GameDatas>
 )

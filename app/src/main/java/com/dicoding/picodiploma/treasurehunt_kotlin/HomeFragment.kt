@@ -1,11 +1,14 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.Html
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +20,10 @@ import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.ActivityMainBind
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
+
+    private lateinit var sharedPreferences: SharedPreferences // deklarasi fitur shared preference
+    private val preferencesName = "treasureHunt" //key shared preference app
+    private val tokenKey = "key_token" //key shared preference token
     private lateinit var adapter: HomeBraceAdapter
     private val list = ArrayList<BraceData>()
     private lateinit var dot : ArrayList<TextView>
@@ -27,7 +34,11 @@ class HomeFragment : Fragment() {
     ) : View {
         val binding = FragmentHomeBinding.inflate(inflater, container, false) // Inflate the layout for this fragment
 
+        sharedPreferences = requireActivity().getSharedPreferences(preferencesName, Context.MODE_PRIVATE) //inisialisasi fitur shared preference
+
         activity?.actionBar?.hide()
+
+        Log.d("CHECKING: ", getTokenUser().toString())
 
         list.add(
             BraceData(
@@ -129,5 +140,7 @@ class HomeFragment : Fragment() {
             view?.findViewById<LinearLayout>(R.id.indikator_home)?.addView(dot[i])
         }
     }
+
+    private fun getTokenUser() : String? = sharedPreferences.getString(tokenKey, null)
 
 }
