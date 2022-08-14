@@ -19,7 +19,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.RetrofitClient
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.GameControlInterface
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.join_game.JoinBody
-import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentHomeBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

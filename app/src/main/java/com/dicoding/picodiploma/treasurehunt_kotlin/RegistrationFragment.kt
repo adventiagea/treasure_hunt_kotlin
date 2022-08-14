@@ -2,6 +2,8 @@ package com.dicoding.picodiploma.treasurehunt_kotlin
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +12,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.ApiBase
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.RetrofitClient
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.auth.AuthInterface
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.auth.registration.RegisterBody
 import com.dicoding.picodiploma.treasurehunt_kotlin.data.RegisterUserData
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentRegistrationBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,26 +47,91 @@ class RegistrationFragment : Fragment() {
         val confirmInput = view.findViewById<EditText>(R.id.confirm_pass_input_regis)
         val regisButton = view.findViewById<Button>(R.id.regis_button)
 
+        val auth = RetrofitClient.init().create(AuthInterface::class.java)
+
+        nameInput.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.login_gray))
+                regisButton.isClickable = false
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+            }
+
+        })
+
+        emailInput.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.login_gray))
+                regisButton.isClickable = false
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+            }
+
+        })
+
+        passInput.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.login_gray))
+                regisButton.isClickable = false
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+            }
+
+        })
+
+        confirmInput.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.login_gray))
+                regisButton.isClickable = false
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                regisButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+            }
+
+        })
+
         regisButton.setOnClickListener {
-            if (nameInput.text != null ){
-                ApiBase.apiInterface.registerUser(emailInput.text.toString(), passInput.text.toString(), nameInput.text.toString(), "", "").enqueue(object :
-                    Callback<RegisterUserData>{
-                    override fun onResponse(
-                        call: Call<RegisterUserData>,
-                        response: Response<RegisterUserData>
-                    ) {
-                        if (response.isSuccessful){
-                            startActivity(Intent(requireActivity(), MainActivity::class.java))
 
-                            Toast.makeText(requireContext(), "Menambah user berhasil!", Toast.LENGTH_SHORT).show()
-
-                        }
+            if (nameInput.text != null && emailInput.text != null && passInput.text != null && confirmInput.text != null){
+                if (confirmInput.text.toString() == passInput.text.toString()){
+                    GlobalScope.launch {
+                        auth.registUser(RegisterBody(emailInput.text.toString(), passInput.text.toString(), nameInput.text.toString(), "", ""))
                     }
 
-                    override fun onFailure(call: Call<RegisterUserData>, t: Throwable) {
-                        Toast.makeText(requireContext(), "Menambah user gagal!", Toast.LENGTH_SHORT).show()
-                    }
-                    })
+                    startActivity(Intent(requireActivity(), MainActivity::class.java))
+
+                    Toast.makeText(activity, "Menambah user berhasil!", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    Toast.makeText(activity, "Password dan Konfirmasi password tidak cocok!", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            else {
+                Toast.makeText(activity, "Masukkan data yang diperlukan!", Toast.LENGTH_SHORT).show()
             }
         }
 

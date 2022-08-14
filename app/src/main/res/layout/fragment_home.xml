@@ -125,7 +125,7 @@ dan langsung mulai bermain!"
                 android:background="@drawable/text_box"
                 android:hint="Kode Permainan"
                 android:importantForAutofill="no"
-                android:inputType="text"
+                android:inputType="textCapCharacters"
                 android:padding="10dp" />
 
             <Button
