@@ -30,6 +30,7 @@ class ApiTestActivity : AppCompatActivity()  {
             val registerBody = RegisterBody("test111@gmail.com", "12345678", "junaris", "jl. fd", "34242342342")
             val regist = auth.registUser(registerBody)
             Log.d("API-register: ", regist.body().toString())
+            /*
 
             val loginRes = auth.login(LoginBody("test111@gmail.com", "12345678"))
             Log.d("API-login: ", loginRes.body().toString())
@@ -67,6 +68,8 @@ class ApiTestActivity : AppCompatActivity()  {
             val postID = postListRes.body()?.data!![0].id
             val postDetailRes = gamePost.getPostDetail(token, postID)
             Log.d("API-post detail: ", postDetailRes.body().toString())
+
+             */
 
         }
     }

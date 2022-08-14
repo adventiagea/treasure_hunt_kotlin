@@ -16,7 +16,7 @@ interface AuthInterface {
 
     @Headers("Content-Type: application/json")
     @POST("/mobile/v1/auth")
-    suspend fun login(@Body user : LoginBody) : Response<LoginResponse>
+    fun login(@Body user : LoginBody) : Call<LoginResponse>
 
 
     @GET("/mobile/v1/me")

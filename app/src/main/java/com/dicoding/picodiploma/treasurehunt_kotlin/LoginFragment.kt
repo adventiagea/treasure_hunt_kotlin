@@ -18,6 +18,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.RetrofitClient
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.auth.AuthInterface
@@ -109,8 +111,27 @@ class LoginFragment : Fragment() {
         val passInput = view?.findViewById<EditText>(R.id.pass_input_login)?.text.toString()
         val login = view?.findViewById<Button>(R.id.logins_button)
 
+        val viewModel = ViewModelProvider(requireActivity())[ViewModel::class.java]//inisialisasi fitur viewmodel
+
         login?.setOnClickListener {
             if (emailInput.isNotEmpty() && passInput.isNotEmpty()) {
+
+                viewModel.login(emailInput, passInput)
+
+                viewModel.loginResponse().observe(viewLifecycleOwner) {
+                    if (it != null){
+                        saveTokenUser("Bearer "+it.data?.access_token)
+                        Log.d("API-login: ", it.data?.access_token.toString())
+
+                        val intent = Intent(activity, MainActivity::class.java)
+
+                        startActivity(intent)
+                    }
+                    else {
+                        Toast.makeText(activity,"Email dan Password salah!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                /*
 
                 GlobalScope.launch {
                     val loginFun = withContext(Dispatchers.Default){
@@ -136,6 +157,8 @@ class LoginFragment : Fragment() {
                         Log.d("API-login: ", loginFun.body()?.errors.toString())
                     }
                 }
+
+                 */
             }
         }
     }
