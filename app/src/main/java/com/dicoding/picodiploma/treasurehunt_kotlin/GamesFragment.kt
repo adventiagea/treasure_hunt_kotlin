@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +13,13 @@ import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.RetrofitClient
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.auth.AuthInterface
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.GameInterface
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentGamesBinding
 import java.lang.StringBuilder
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class GamesFragment : Fragment() {
 
@@ -23,10 +29,32 @@ class GamesFragment : Fragment() {
     private val listGame = ArrayList<ListGameData>()
     private lateinit var dot : ArrayList<TextView>
 
+    private val listGameApi = RetrofitClient.init().create(GameInterface::class.java)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        GlobalScope.launch {
+            val token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMzgyMmEwYi1mNGE3LTQzYWMtODE3MS04ZDRhYWQxN2NmNzYiLCJpYXQiOjE2NjA0NjIzMTZ9.-xVfMw4rgQ8hzA0K-JvHU7WtEkOSLrT28vlvnZ1jleE"
+            val gameListRes = listGameApi.getGameLists(token)
+
+
+            Log.d("wnb-tes: ", gameListRes.body()?.data.toString())
+
+            listGame.add(
+                    ListGameData(
+                            R.drawable.banner_manohara,
+                            gameListRes.body()?.data!![0].title,
+                            gameListRes.body()?.data!![0].title,
+                            gameListRes.body()?.data!![0].description,
+                    )
+            )
+        }
+
+
+
         val binding = FragmentGamesBinding.inflate(inflater, container, false)
 
         activity?.actionBar?.hide()
