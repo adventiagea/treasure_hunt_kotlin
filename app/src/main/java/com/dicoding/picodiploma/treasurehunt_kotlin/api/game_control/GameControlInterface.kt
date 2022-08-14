@@ -20,5 +20,12 @@ interface GameControlInterface {
     suspend fun getLobbyDetail(@Header("Authorization") token: String,
                                @Path("lobbyID") lobbyID : String,
                                @Query("game_token") game_token: String,) : Response<Lobby>
+/*
+    @POST("/mobile/v1/game-controls/start-game")
+    fun startGame(@Header("Authorization") token: String,
+                  @Query("game_token") game_token: String
+    ) : Response<Me>
+
+ */
 
 }

@@ -119,7 +119,7 @@ class LoginFragment : Fragment() {
 
                         if (loginFun.body()?.isSuccess == true) {
 
-                            saveTokenUser(loginFun.body()?.data?.access_token.toString())
+                            saveTokenUser("Bearer "+loginFun.body()?.data?.access_token.toString())
 
                             val intent = Intent(activity, MainActivity::class.java)
 
