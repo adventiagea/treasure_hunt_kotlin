@@ -1,6 +1,7 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
-import android.content.Intent
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
@@ -10,18 +11,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.RetrofitClient
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.GameInterface
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.detail.Game
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentGamesBinding
-import java.lang.StringBuilder
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class GamesFragment : Fragment() {
-
+    private lateinit var sharedPreferences: SharedPreferences // deklarasi fitur shared preference
+    private val preferencesName = "treasureHunt" //key shared preference app
+    private val tokenKey = "key_token" //key shared preference token
     private lateinit var adapter: GameBraceAdapter
     private lateinit var listAdapter: ListGameAdapter
     private val list = ArrayList<BraceGameData>()
-    private val listGame = ArrayList<ListGameData>()
+    private val listGame = ArrayList<Game>()
     private lateinit var dot : ArrayList<TextView>
+    //private lateinit var viewModel : viewmodel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +39,42 @@ class GamesFragment : Fragment() {
         val binding = FragmentGamesBinding.inflate(inflater, container, false)
 
         activity?.actionBar?.hide()
+
+        sharedPreferences = requireActivity().getSharedPreferences(preferencesName, Context.MODE_PRIVATE) //inisialisasi fitur shared preference
+
+        val viewModel = ViewModelProvider(requireActivity())[ViewModel::class.java]//inisialisasi fitur viewmodel
+
+        val games = RetrofitClient.init().create(GameInterface::class.java)
+
+        GlobalScope.launch {
+
+            val gameListRes = games.getGameLists("Bearer "+ getTokenUser().toString())
+/*
+            listGame.addAll(
+                listOf(ListGameData(
+                    R.drawable.banner_manohara,
+                    "MANOHARA",
+                    gameListRes.body()?.data!![0].title,
+                    gameListRes.body()?.data!![0].description
+                ))
+            )
+
+
+            listGame.add(
+                ListGameData(
+                    R.drawable.banner_manohara,
+                    "MANOHARA",
+                    gameListRes.body()?.data!![0].title,
+                    "Lorem ipsum dolor sit amet"
+                )
+            )
+
+             */
+
+        }
+
+
+
 
         list.add(
             BraceGameData(
@@ -51,6 +96,7 @@ class GamesFragment : Fragment() {
         binding.viewPagerList.adapter = adapter
         dot = ArrayList()
 
+        /*
 
         listGame.add(
             ListGameData(
@@ -79,10 +125,19 @@ class GamesFragment : Fragment() {
             )
         )
 
+         */
 
-        listAdapter = ListGameAdapter(listGame)
-        binding.listGameRv.adapter = listAdapter
-        binding.listGameRv.layoutManager = LinearLayoutManager(context)
+        viewModel.listGameApi(getTokenUser().toString())
+
+        viewModel.getListGame().observe(requireActivity()) {
+            listAdapter = ListGameAdapter()
+
+            listAdapter.listTransaksi(it)
+            binding.listGameRv.adapter = listAdapter
+            binding.listGameRv.layoutManager = LinearLayoutManager(context)
+
+        }
+
 
         setIndicator()
 
@@ -123,5 +178,7 @@ class GamesFragment : Fragment() {
             view?.findViewById<LinearLayout>(R.id.indikator_game)?.addView(dot[i])
         }
     }
+
+    private fun getTokenUser() : String? = sharedPreferences.getString(tokenKey, null)
 
 }
