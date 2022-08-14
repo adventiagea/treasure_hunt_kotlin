@@ -1,5 +1,7 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,6 +13,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 
@@ -58,11 +62,22 @@ class ForgotPasswordFragment : Fragment() {
         val send = view?.findViewById<Button>(R.id.send_button)
         send?.setOnClickListener {
             if (emailInput?.text.toString().isNotEmpty()) {
-                val dialog = DialogsFragment()
+                val dialogView = View.inflate(context,R.layout.dialog_send_email_yes, null)
+                val builder = AlertDialog.Builder(context)
+                builder.setView(dialogView)
 
-                dialog.show(requireActivity().supportFragmentManager, "send")
+                val dialog = builder.create()
+                dialog.show()
+                dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-                 Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_mainActivity)
+                val sendEmail = dialogView.findViewById<Button>(R.id.ok_send_email)
+                sendEmail?.setOnClickListener {
+                    dialog.dismiss()
+
+                    val intent = Intent(dialogView.context, LoginActivity::class.java)
+                    startActivity(intent)
+                }
+
             }
             else {
                 Toast.makeText(activity, "Masukkan Email!", Toast.LENGTH_SHORT).show()
