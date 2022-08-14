@@ -28,9 +28,7 @@ class GamesFragment : Fragment() {
     private lateinit var adapter: GameBraceAdapter
     private lateinit var listAdapter: ListGameAdapter
     private val list = ArrayList<BraceGameData>()
-    private val listGame = ArrayList<Game>()
     private lateinit var dot : ArrayList<TextView>
-    //private lateinit var viewModel : viewmodel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,37 +61,6 @@ class GamesFragment : Fragment() {
         adapter = GameBraceAdapter(list)
         binding.viewPagerList.adapter = adapter
         dot = ArrayList()
-
-        /*
-
-        listGame.add(
-            ListGameData(
-                R.drawable.banner_manohara,
-                "MANOHARA",
-                "Manohara",
-                "Lorem ipsum dolor sit amet"
-            )
-        )
-
-        listGame.add(
-            ListGameData(
-                R.drawable.banner_brace,
-                "BRACE\n2022",
-                "BRACE 2022",
-                "Lorem ipsum dolor sit amet"
-            )
-        )
-
-        listGame.add(
-            ListGameData(
-                R.drawable.list_game_3,
-                "SHUDANNA",
-                "Shudanna",
-                "Lorem ipsum dolor sit amet"
-            )
-        )
-
-         */
 
         viewModel.listGameApi(getTokenUser().toString())
 

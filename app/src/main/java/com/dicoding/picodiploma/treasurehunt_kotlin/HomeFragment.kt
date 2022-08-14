@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences // deklarasi fitur shared preference
     private val preferencesName = "treasureHunt" //key shared preference app
     private val tokenKey = "key_token"//key shared preference token
-    private val tokenGame = "key_token_game"
+    private val tokenGame = "key_token_game" //key game
     private lateinit var adapter: HomeBraceAdapter
     private val list = ArrayList<BraceData>()
     private lateinit var dot : ArrayList<TextView>
@@ -122,14 +122,14 @@ class HomeFragment : Fragment() {
 
                         startActivity(intent)
                     } else {
-                        Toast.makeText(requireContext(), "Kode Permainan Salah!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Kode Permainan Salah!", Toast.LENGTH_SHORT).show()
                     }
                 }
 
 
             }
             else{
-                Toast.makeText(requireContext(), "Masukkan Kode Permainan!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Masukkan Kode Permainan!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -162,6 +162,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+    //manggil value token.. pastikan key nya bener dan dah di deklarasi di atas
     private fun getTokenUser() : String? = sharedPreferences.getString(tokenKey, null)
 
     private fun saveTokenGame(token : String) {
