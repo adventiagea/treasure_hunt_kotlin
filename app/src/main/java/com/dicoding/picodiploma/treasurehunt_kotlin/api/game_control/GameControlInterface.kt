@@ -4,6 +4,8 @@ import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.join_game.J
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.join_game.JoinBody
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.lobby.Lobby
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.me.Me
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.ready_check.ReadyCheck
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.start_game.StartGame
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -20,6 +22,15 @@ interface GameControlInterface {
     suspend fun getLobbyDetail(@Header("Authorization") token: String,
                                @Path("lobbyID") lobbyID : String,
                                @Query("game_token") game_token: String,) : Response<Lobby>
+
+
+    @POST("/mobile/v1/game-controls/ready-check")
+    suspend fun readyCheck(@Header("Authorization") token: String,
+    @Query("game_token") game_token: String) : Response<ReadyCheck>
+
+    @POST("/mobile/v1/game-controls/start-game")
+    suspend fun startGame(@Header("Authorization") token: String,
+                   @Query("game_token") game_token: String) : Response<StartGame>
 /*
     @POST("/mobile/v1/game-controls/start-game")
     fun startGame(@Header("Authorization") token: String,
