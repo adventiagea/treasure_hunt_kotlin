@@ -17,6 +17,10 @@ class LobbyGameActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
+        binding.readyButton.setOnClickListener {
+
+        }
+
         binding.playGameButton.setBackgroundColor(ContextCompat.getColor(this, R.color.green))
         binding.playGameButton.setOnClickListener {
             val intent = Intent(this, PlayGameActivity::class.java)

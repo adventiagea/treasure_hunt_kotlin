@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"
                     android:text="Petapa"
-                    android:textAlignment="left"
+                    android:textAlignment="textStart"
                     android:textColor="#404040"
                     android:textSize="20sp" />
 
@@ -47,7 +47,7 @@
                     android:layout_marginBottom="80dp"
                     android:fontFamily="@font/plus_jakarta_sans_regular"
                     android:text="Selamat Sudhana kamu telah mengumpulkan seluruh pecahan cincin ini, saatnya aku akan menyatukan cincni ini kembali."
-                    android:textAlignment="left"
+                    android:textAlignment="textStart"
                     android:textColor="#757575"
                     android:textSize="12sp" />
 

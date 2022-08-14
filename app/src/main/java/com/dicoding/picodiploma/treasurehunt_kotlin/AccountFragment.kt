@@ -30,6 +30,8 @@ class AccountFragment : Fragment() {
 
 
         view.findViewById<Button>(R.id.sign_out).setOnClickListener{
+            logOut()
+
             val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
 

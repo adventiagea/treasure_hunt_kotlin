@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"
                     android:text="Peta"
-                    android:textAlignment="left"
+                    android:textAlignment="textStart"
                     android:textColor="#404040"
                     android:textSize="20sp" />
 

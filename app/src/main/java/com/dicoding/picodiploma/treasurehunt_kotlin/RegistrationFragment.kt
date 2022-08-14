@@ -13,12 +13,12 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.ApiBase
 import com.dicoding.picodiploma.treasurehunt_kotlin.data.RegisterUserData
+import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentRegistrationBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RegistrationFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +26,7 @@ class RegistrationFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_registration, container, false)
 
+        val binding = FragmentRegistrationBinding.inflate(layoutInflater)
         val back = view.findViewById<ImageButton>(R.id.back_register)
 
         back.setOnClickListener {

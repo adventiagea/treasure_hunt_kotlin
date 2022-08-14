@@ -203,6 +203,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/player5" />
 
+    <Button
+        android:id="@+id/ready_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/lora_regular"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Ready"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/play_game_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/play_game_button"
@@ -210,7 +227,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
         android:layout_marginEnd="39dp"
-        android:layout_marginBottom="74dp"
+        android:layout_marginBottom="34dp"
         android:backgroundTint="#A0ABC0"
         android:fontFamily="@font/lora_regular"
         android:paddingTop="10dp"
