@@ -25,11 +25,12 @@ interface GameControlInterface {
 
 
     @POST("/mobile/v1/game-controls/ready-check")
-    suspend fun readyCheck(@Header("Authorization") token: String,
-    @Query("game_token") game_token: String) : Response<ReadyCheck>
+    fun readyCheck(@Header("Authorization") token: String,
+                           @Query("game_token") game_token: String
+    ) : Response<ReadyCheck>
 
     @POST("/mobile/v1/game-controls/start-game")
-    suspend fun startGame(@Header("Authorization") token: String,
+    fun startGame(@Header("Authorization") token: String,
                    @Query("game_token") game_token: String) : Response<StartGame>
 /*
     @POST("/mobile/v1/game-controls/start-game")
