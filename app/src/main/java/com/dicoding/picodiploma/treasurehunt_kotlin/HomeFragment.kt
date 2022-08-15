@@ -23,6 +23,7 @@ import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.join_game.J
 import com.dicoding.picodiploma.treasurehunt_kotlin.databinding.FragmentHomeBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.StringBuilder
 
 class HomeFragment : Fragment() {
 
@@ -95,13 +96,20 @@ class HomeFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 playButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
-
-                play()
             }
 
         })
 
         return binding.root
+    }
+
+    private fun continueGame(){
+        val playButton = view?.findViewById<Button>(R.id.play_button)
+        playButton?.text = StringBuilder("Continue Game")
+        playButton?.setOnClickListener{
+            startActivity(Intent(requireActivity(), PlayGameActivity::class.java))
+        }
+
     }
 
     private fun play() {
@@ -110,27 +118,42 @@ class HomeFragment : Fragment() {
 
         val viewModel = ViewModelProvider(requireActivity())[ViewModel::class.java]//inisialisasi fitur viewmodel
 
-        playButton?.setOnClickListener{
-            if (inputCode?.text.toString().isNotEmpty()){
-                Log.d("API-login: ", getTokenUser().toString()+"%%%%%"+inputCode?.text.toString())
+        viewModel.checkContinueGame(getTokenUser().toString(), inputCode?.text.toString())
 
-                viewModel.join(getTokenUser().toString(), inputCode?.text.toString())
+        viewModel.responseContinueGame().observe(viewLifecycleOwner){
+            if (it != null){
+                playButton?.setOnClickListener{
+                    if (inputCode?.text.toString().isNotEmpty()){
+                        Log.d("API-login: ", getTokenUser().toString()+"%%%%%"+inputCode?.text.toString())
 
-                viewModel.joinGame().observe(viewLifecycleOwner){
-                    if (it!=null){
-                        saveTokenGame(inputCode?.text.toString())
+                        viewModel.join(getTokenUser().toString(), inputCode?.text.toString())
 
-                        startActivity(Intent(requireActivity(), LobbyGameActivity::class.java))
+                        viewModel.joinGame().observe(viewLifecycleOwner){
+                            if (it!=null){
+                                saveTokenGame(inputCode?.text.toString())
+
+                                startActivity(Intent(requireActivity(), LobbyGameActivity::class.java))
+                            }
+                            else {
+                                Toast.makeText(activity, "Kode Permainan salah!", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                     }
-                    else {
-                        Toast.makeText(activity, "Kode Permainan salah!", Toast.LENGTH_SHORT).show()
+                    else{
+                        Toast.makeText(activity, "Masukkan Kode Permainan!", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
-            else{
-                Toast.makeText(activity, "Masukkan Kode Permainan!", Toast.LENGTH_SHORT).show()
+            else {
+                continueGame()
+
+                playButton?.setOnClickListener{
+                    startActivity(Intent(requireActivity(), PlayGameActivity::class.java))
+                }
             }
         }
+
+
 
     }
 

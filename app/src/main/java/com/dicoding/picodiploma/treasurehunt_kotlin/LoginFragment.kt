@@ -125,39 +125,12 @@ class LoginFragment : Fragment() {
                         val intent = Intent(activity, MainActivity::class.java)
 
                         startActivity(intent)
+                        requireActivity().finish()
                     }
                     else {
                         Toast.makeText(activity,"Email dan Password salah!", Toast.LENGTH_SHORT).show()
                     }
                 }
-                /*
-
-                GlobalScope.launch {
-                    val loginFun = withContext(Dispatchers.Default){
-                        auth.login(LoginBody(emailInput, passInput))
-                    }
-
-                    //if (loginFun.isSuccessful){
-                    Log.d("API-login: ", loginFun.message())
-
-                    Log.d("API-login: ", emailInput + passInput)
-
-                    if (loginFun.body()?.isSuccess == true) {
-
-                        saveTokenUser("Bearer "+loginFun.body()?.data?.access_token.toString())
-
-                        val intent = Intent(activity, MainActivity::class.java)
-
-                        startActivity(intent)
-                        //Navigation.findNavController(requireView()) .navigate(R.id.action_loginFragment_to_mainActivity)
-                    } else {
-                        Toast.makeText(activity,"Email dan Password salah!", Toast.LENGTH_SHORT).show()
-
-                        Log.d("API-login: ", loginFun.body()?.errors.toString())
-                    }
-                }
-
-                 */
             }
         }
     }

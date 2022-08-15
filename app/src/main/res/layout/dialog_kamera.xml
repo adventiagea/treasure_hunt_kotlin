@@ -58,7 +58,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <Button
-                android:id="@+id/ok_forgot"
+                android:id="@+id/buka_camera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/green"
@@ -67,7 +67,7 @@
                 android:paddingTop="10dp"
                 android:paddingEnd="25dp"
                 android:paddingBottom="10dp"
-                android:text="Allow"
+                android:text="Open Camera"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textAllCaps="false"

@@ -63,7 +63,7 @@ class ListGameAdapter: RecyclerView.Adapter<ListGameAdapter.ListGameViewHolder>(
         }
 
         holder.itemView.findViewById<Button>(R.id.button_play_game_adapter).setOnClickListener {
-            val intent = Intent(holder.itemView.context, BraceCheckInActivity::class.java)
+            val intent = Intent(holder.itemView.context, DetailGameActivity::class.java)
 
             holder.itemView.context.startActivity(intent)
         }

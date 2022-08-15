@@ -19,8 +19,8 @@ interface GameControlInterface {
     fun join(@Header("Authorization") token: String, @Body code : JoinBody) : Call<Join>
 
     @GET("/mobile/v1/game-controls/me")
-    suspend fun getUserInfoInGame(@Header("Authorization") token: String,
-                               @Query("game_token") game_token: String) : Response<Me>
+    fun getUserInfoInGame(@Header("Authorization") token: String,
+                               @Query("game_token") game_token: String) : Call<Me>
 
     @GET("/mobile/v1/game-controls/lobbies/{lobbyID}")
     suspend fun getLobbyDetail(@Header("Authorization") token: String,

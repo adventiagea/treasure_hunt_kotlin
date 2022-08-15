@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -10,11 +11,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlin.math.sign
 
 class AccountFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences // deklarasi fitur shared preference
@@ -30,10 +34,29 @@ class AccountFragment : Fragment() {
 
 
         view.findViewById<Button>(R.id.sign_out).setOnClickListener{
-            logOut()
+            val dialogView = View.inflate(context,R.layout.dialog_sign_out, null)
+            val builder = AlertDialog.Builder(context)
+            builder.setView(dialogView)
 
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-            startActivity(intent)
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+            val cancel = dialogView.findViewById<Button>(R.id.cancel_sign_out)
+            cancel?.setOnClickListener {
+                dialog.dismiss()
+
+                //val intent = Intent(dialogView.context, LoginActivity::class.java)
+                //startActivity(intent)
+            }
+
+            val yesSignOut = dialogView.findViewById<Button>(R.id.yes_sign_out)
+            yesSignOut.setOnClickListener {
+                logOut()
+
+                val intent = Intent(dialogView.context, LoginActivity::class.java)
+                startActivity(intent)
+            }
 
         //Navigation.findNavController(view).navigate(R.id.action_accountFragment_to_loginFragment)
 
@@ -71,5 +94,36 @@ class AccountFragment : Fragment() {
 
         val intent = Intent(requireContext(), LoginActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun signOut(){
+        val signOutButton = view?.findViewById<Button>(R.id.sign_out)
+        signOutButton?.setOnClickListener {
+
+                val dialogView = View.inflate(context,R.layout.dialog_sign_out, null)
+                val builder = AlertDialog.Builder(context)
+                builder.setView(dialogView)
+
+                val dialog = builder.create()
+                dialog.show()
+                dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+                val cancel = dialogView.findViewById<Button>(R.id.cancel_sign_out)
+            cancel?.setOnClickListener {
+                    dialog.dismiss()
+
+                    //val intent = Intent(dialogView.context, LoginActivity::class.java)
+                    //startActivity(intent)
+                }
+
+            val yesSignOut = dialogView.findViewById<Button>(R.id.yes_sign_out)
+            yesSignOut.setOnClickListener {
+                logOut()
+
+                val intent = Intent(dialogView.context, LoginActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
     }
 }
