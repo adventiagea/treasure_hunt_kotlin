@@ -106,7 +106,6 @@ class LoginFragment : Fragment() {
     }
 
     private fun login() {
-        val auth = RetrofitClient.init().create(AuthInterface::class.java)
         val emailInput = view?.findViewById<EditText>(R.id.email_input_login)?.text.toString()
         val passInput = view?.findViewById<EditText>(R.id.pass_input_login)?.text.toString()
         val login = view?.findViewById<Button>(R.id.logins_button)

@@ -9,6 +9,12 @@ import com.dicoding.picodiploma.treasurehunt_kotlin.api.auth.AuthInterface
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.auth.login.LoginBody
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.auth.login.LoginResponse
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.auth.registration.RegisterBody
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.GameControlInterface
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.join_game.Join
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.join_game.JoinBody
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.ready_check.ReadyCheck
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.start_game.StartGame
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.GameInterface
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.detail.Game
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.list.GameDatas
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.list.Games
@@ -19,6 +25,9 @@ import retrofit2.Response
 class ViewModel : ViewModel() {
     private val listGame = MutableLiveData<ArrayList<GameDatas>>()
     private val login = MutableLiveData<LoginResponse>()
+    private val readyCheck = MutableLiveData<ReadyCheck>()
+    private val joinGame = MutableLiveData<Join>()
+    private val startGame = MutableLiveData<StartGame>()
 
     fun listGameApi(token : String){
         ApiBase.apiInterface.getGameLists(token).enqueue(object : Callback<Games> {
@@ -35,6 +44,40 @@ class ViewModel : ViewModel() {
 
     fun getListGame() : LiveData<ArrayList<GameDatas>> = listGame
 
+    fun join(tokenUser: String, tokenGame: String){
+        RetrofitClient.init().create(GameControlInterface::class.java).join(tokenUser, JoinBody(tokenGame)).enqueue(object : Callback<Join>{
+            override fun onResponse(call: Call<Join>, response: Response<Join>) {
+                joinGame.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<Join>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    fun joinGame() : LiveData<Join>{
+        return joinGame
+    }
+
+    fun start(tokenUser: String, tokenGame: String){
+        RetrofitClient.init().create(GameControlInterface::class.java).startGame(tokenUser, tokenGame).enqueue(object : Callback<StartGame>{
+            override fun onResponse(call: Call<StartGame>, response: Response<StartGame>) {
+                startGame.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<StartGame>, t: Throwable) {
+                t.message
+            }
+
+        })
+    }
+
+    fun startGame() : LiveData<StartGame>{
+        return startGame
+    }
+
     fun login(email : String, pass : String){
         RetrofitClient.init().create(AuthInterface::class.java).login(LoginBody(email, pass)).enqueue(object : Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
@@ -49,5 +92,22 @@ class ViewModel : ViewModel() {
     }
     fun loginResponse() : LiveData<LoginResponse>{
         return login
+    }
+
+    fun getReadyCheck(tokenUser : String, tokenGame : String){
+        RetrofitClient.init().create(GameControlInterface::class.java).readyCheck(tokenUser, tokenGame).enqueue(object : Callback<ReadyCheck>{
+            override fun onResponse(call: Call<ReadyCheck>, response: Response<ReadyCheck>) {
+                readyCheck.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<ReadyCheck>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    fun readyCheckResponse() : LiveData<ReadyCheck>{
+        return readyCheck
     }
 }

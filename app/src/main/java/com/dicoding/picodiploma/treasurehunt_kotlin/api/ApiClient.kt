@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.treasurehunt_kotlin.api
 
+import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.ready_check.ReadyCheck
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.detail.Game
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.games.list.Games
 import com.dicoding.picodiploma.treasurehunt_kotlin.data.RegisterUserData
@@ -23,5 +24,10 @@ interface ApiClient {
     @GET("/mobile/v1/games/{gameID}")
     suspend fun getGameDetail(@Header("Authorization") token: String,
                               @Path("gameID") gameID: String) : Response<Game>
+
+    @POST("/mobile/v1/game-controls/ready-check")
+    fun readyCheck(@Header("Authorization") token: String,
+                   @Query("game_token") game_token: String
+    ) : Call<ReadyCheck>
 
 }

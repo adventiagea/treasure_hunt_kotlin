@@ -15,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.RetrofitClient
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.GameControlInterface
@@ -107,26 +108,24 @@ class HomeFragment : Fragment() {
         val inputCode = view?.findViewById<EditText>(R.id.input_code)
         val playButton = view?.findViewById<Button>(R.id.play_button)
 
+        val viewModel = ViewModelProvider(requireActivity())[ViewModel::class.java]//inisialisasi fitur viewmodel
+
         playButton?.setOnClickListener{
             if (inputCode?.text.toString().isNotEmpty()){
                 Log.d("API-login: ", getTokenUser().toString()+"%%%%%"+inputCode?.text.toString())
 
-                //saveTokenGame(inputCode?.text.toString())
-                GlobalScope.launch {
-                    val joinRes = gameControl.join(getTokenUser().toString(), JoinBody(inputCode?.text.toString()))
+                viewModel.join(getTokenUser().toString(), inputCode?.text.toString())
 
-                    if (joinRes.isSuccessful){
+                viewModel.joinGame().observe(viewLifecycleOwner){
+                    if (it!=null){
                         saveTokenGame(inputCode?.text.toString())
 
-                        val intent = Intent(activity, LobbyActivity::class.java)
-
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(activity, "Kode Permainan Salah!", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(requireActivity(), LobbyGameActivity::class.java))
+                    }
+                    else {
+                        Toast.makeText(activity, "Kode Permainan salah!", Toast.LENGTH_SHORT).show()
                     }
                 }
-
-
             }
             else{
                 Toast.makeText(activity, "Masukkan Kode Permainan!", Toast.LENGTH_SHORT).show()

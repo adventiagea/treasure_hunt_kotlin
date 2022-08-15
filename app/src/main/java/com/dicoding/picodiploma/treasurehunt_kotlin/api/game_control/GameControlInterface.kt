@@ -9,13 +9,14 @@ import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.next_flow.F
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.next_flow.NextFlow
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.ready_check.ReadyCheck
 import com.dicoding.picodiploma.treasurehunt_kotlin.api.game_control.start_game.StartGame
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
 interface GameControlInterface {
     @Headers("Content-Type: application/json")
     @POST("/mobile/v1/game-controls/join-game")
-    suspend fun join(@Header("Authorization") token: String, @Body code : JoinBody) : Response<Join>
+    fun join(@Header("Authorization") token: String, @Body code : JoinBody) : Call<Join>
 
     @GET("/mobile/v1/game-controls/me")
     suspend fun getUserInfoInGame(@Header("Authorization") token: String,
@@ -30,11 +31,11 @@ interface GameControlInterface {
     @POST("/mobile/v1/game-controls/ready-check")
     fun readyCheck(@Header("Authorization") token: String,
                            @Query("game_token") game_token: String
-    ) : Response<ReadyCheck>
+    ) : Call<ReadyCheck>
 
     @POST("/mobile/v1/game-controls/start-game")
     fun startGame(@Header("Authorization") token: String,
-                   @Query("game_token") game_token: String) : Response<StartGame>
+                   @Query("game_token") game_token: String) : Call<StartGame>
 
     @POST("/mobile/v1/game-controls/next-flow")
     fun nextFlow(@Header("Authorization") token: String,

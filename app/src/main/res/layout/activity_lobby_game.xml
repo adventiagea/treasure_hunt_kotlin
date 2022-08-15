@@ -16,7 +16,7 @@
         android:textColor="@color/green"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="107dp"
+        android:layout_marginTop="57dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,7 @@
         android:fontFamily="@font/inter"
         android:text="Player 1"
         android:layout_marginStart="39dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
         android:textColor="@color/dark_blue"
         android:textSize="14sp"
         android:textStyle="bold"
