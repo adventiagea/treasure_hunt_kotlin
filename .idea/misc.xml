@@ -55,7 +55,11 @@
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.2391304347826087" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/activity_welcome_game.xml" value="0.1" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_forgot_send_yes.xml" value="0.1852355072463768" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_instruksi_awal.xml" value="0.1337386018237082" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_kamera.xml" value="0.176" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_peta.xml" value="0.275" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_peta_lokasi.xml" value="0.1337386018237082" />
+        <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_petunjuk.xml" value="0.275" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_share.xml" value="0.1337386018237082" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/dialog_sign_out.xml" value="0.1337386018237082" />
         <entry key="..\:/project/TreasureHuntKotlin/app/src/main/res/layout/fragment_account.xml" value="0.264" />
